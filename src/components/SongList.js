@@ -1,0 +1,28 @@
+import React, {Component} from 'react'
+import { connect }  from 'react-redux'
+
+
+class SongList extends Component {
+    renderList () {
+        return(this.props.songs.map((song)=> {
+          return(
+              <div key={song.title}  className="item"></div>
+          )  
+        }))
+    }
+ 
+ 
+    render(){
+           console.log(this.props);
+           return(
+               <div>SongList</div>
+           )
+       }
+}
+
+const mapStateToProps = (state) => {
+    return {songs: state.songs}
+
+}
+ 
+export default connect(mapStateToProps)(SongList);
